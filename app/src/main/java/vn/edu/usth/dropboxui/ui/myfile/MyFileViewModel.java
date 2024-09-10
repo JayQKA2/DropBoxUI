@@ -1,16 +1,16 @@
-package vn.edu.usth.dropboxui.ui.notifications;
+package vn.edu.usth.dropboxui.ui.myfile;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class NotificationsViewModel extends ViewModel {
+public class MyFileViewModel extends ViewModel {
 
     private final MutableLiveData<String> mText;
 
-    public NotificationsViewModel() {
+    public MyFileViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is notifications fragment");
+        mText.setValue("This is my file fragment");
     }
 
     public LiveData<String> getText() {
