@@ -7,53 +7,46 @@
     android:padding="16dp"
     android:background="#F5F5F5">
 
-    <LinearLayout
+    <!-- Music -->
+    <Button
+        android:id="@+id/musicButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginBottom="16dp">
-
-        <!-- Music -->
-        <Button
-            android:id="@+id/musicButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
         android:text="Music"
-        android:textSize="16sp"
-        android:drawableTop="@drawable/music"
-        android:drawablePadding="8dp"
+        android:textSize="18sp"
+        android:drawableLeft="@drawable/music"
+        android:drawablePadding="5dp"
         android:backgroundTint="#FFCDD2"
-        android:padding="16dp"
-        android:textColor="#000" />
+        android:textColor="#000"
+        android:padding="8dp"
+        android:layout_marginBottom="4dp" />
 
-        <!-- Movies -->
-        <Button
-            android:id="@+id/moviesButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
+    <!-- Movies -->
+    <Button
+        android:id="@+id/moviesButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:text="Movies"
-        android:textSize="16sp"
-        android:drawableTop="@drawable/videos"
-        android:drawablePadding="8dp"
+        android:textSize="18sp"
+        android:drawableLeft="@drawable/videos"
+        android:drawablePadding="5dp"
         android:backgroundTint="#BBDEFB"
-        android:padding="16dp"
-        android:textColor="#000" />
+        android:textColor="#000"
+        android:padding="8dp"
+        android:layout_marginBottom="4dp" />
 
-        <!-- Pictures-->
-        <Button
-            android:id="@+id/picturesButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
+    <!-- Pictures -->
+    <Button
+        android:id="@+id/picturesButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:text="Pictures"
-        android:textSize="16sp"
-        android:drawableTop="@drawable/image"
-        android:drawablePadding="8dp"
+        android:textSize="18sp"
+        android:drawableLeft="@drawable/image"
+        android:drawablePadding="5dp"
         android:backgroundTint="#C8E6C9"
-        android:padding="16dp"
-        android:textColor="#000" />
-    </LinearLayout>
+        android:textColor="#000"
+        android:padding="8dp"
+        android:layout_marginBottom="4dp" />
 
 </LinearLayout>
