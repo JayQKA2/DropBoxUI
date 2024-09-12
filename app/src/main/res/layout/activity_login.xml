@@ -16,7 +16,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/text_margin"
+            android:layout_marginTop="50dp"
             android:layout_marginStart="@dimen/layout_margin"
             android:text="@string/welcome"
             android:textAppearance="@style/TextAppearance.AppCompat.Title"
@@ -28,15 +28,15 @@
             android:layout_width="350dp"
             android:layout_height="245dp"
             android:layout_marginStart="@dimen/layout_margin"
-            android:layout_marginTop="@dimen/layout_margin"
+            android:layout_marginTop="100dp"
             android:src="@drawable/dropbox_login"
-            tools:ignore="ContentDescription"/>
+            tools:ignore="ContentDescription" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="70dp"
             android:orientation="vertical">
 
             <FrameLayout
@@ -69,31 +69,31 @@
                 android:id="@+id/login_with_apple"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/coconut"
                 android:layout_margin="@dimen/layout_margin"
+                android:background="@color/coconut"
                 android:padding="10dp">
 
                 <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@color/coconut"
                     android:layout_gravity="start|center_vertical"
-                    android:src="@drawable/ic_apple"/>
+                    android:background="@color/coconut"
+                    android:src="@drawable/ic_apple" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:text="@string/sign_in_with_apple"
                     android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-                    android:textStyle="bold"
                     android:textColor="@color/graphite"
-                    android:text="@string/sign_in_with_apple"/>
+                    android:textStyle="bold" />
 
             </FrameLayout>
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center">
@@ -102,24 +102,22 @@
                 android:id="@+id/already_have"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="@dimen/layout_margin"
                 android:text="@string/already_have_an_account"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                 android:textColor="@color/white"
-                android:textStyle="bold" />
+                android:textStyle="bold"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/sign_in"
                 android:textColor="@color/dropbox_blue"
-                android:layout_margin="@dimen/layout_margin"
+                android:layout_marginStart="4dp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                 android:textStyle="bold"
-                android:id="@+id/sign_in"
-                android:layout_marginStart="8dp"/>
+                android:id="@+id/sign_in"/>
         </LinearLayout>
+
 
     </LinearLayout>
 </ScrollView>
