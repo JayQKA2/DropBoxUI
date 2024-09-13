@@ -11,4 +11,10 @@
     <string name="sign_up">Sign up</string>
     <string name="already_have_an_account">Already have an account?</string>
     <string name="sign_in">Sign in</string>
+    <string name="email_hint">Email</string>
+    <string name="password_hint">Password</string>
+    <string name="log_in_to_dropbox">Log in to Dropbox</string>
+    <string name="having_trouble_logging_in">Having trouble logging in?</string>
+    <string name="log_in_with_google">Log in with Google</string>
+    <string name="log_in">Log in</string>
 </resources>

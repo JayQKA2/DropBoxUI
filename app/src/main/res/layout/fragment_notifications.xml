@@ -1,22 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.notifications.NotificationsFragment">
+    android:padding="8dp"
+    android:layout_marginTop="20dp"
+    tools:context=".LoginActivity">
 
-    <TextView
-        android:id="@+id/text_notifications"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/layout_margin"
+                android:layout_marginTop="@dimen/layout_margin"
+                android:src="@drawable/ic_dropbox"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/text_margin"
+                android:layout_marginStart="@dimen/layout_margin"
+                android:text="@string/welcome_to_dropbox_2"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_marginTop="50dp"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:id="@+id/login_with_google"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/coconut"
+                android:layout_margin="@dimen/layout_margin"
+                android:padding="10dp">
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/coconut"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/ic_google"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                    android:textStyle="bold"
+                    android:textColor="@color/graphite"
+                    android:text="@string/continue_with_google"/>
+
+            </FrameLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/or"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/continue_with_email"
+                android:layout_marginStart="@dimen/layout_margin"
+                android:layout_marginEnd="@dimen/layout_margin"
+                android:paddingStart="@dimen/text_padding"
+                android:layout_marginTop="20dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+            <EditText
+                android:id="@+id/email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/layout_margin"
+                android:layout_marginEnd="@dimen/layout_margin"
+                android:focusable="true"
+                android:focusableInTouchMode="true"/>
+
+            <Button
+                android:id="@+id/continue_btn"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:cornerRadius="0dp"
+                android:layout_margin="@dimen/layout_margin"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textStyle="bold"
+                android:text="@string/continue_email"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/trouble_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_margin="@dimen/layout_margin"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textColor="@color/dropbox_blue"
+            android:textStyle="bold"
+            android:text="@string/having_trouble_signing_in" />
+
+    </LinearLayout>
+
+
+</ScrollView>
