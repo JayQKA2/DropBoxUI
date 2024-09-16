@@ -3,99 +3,66 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".ui.myfile.StorageFragment">
 
-    <!-- Navigation icon -->
+    <!-- Navigation Icon -->
 
-    <!-- Title TextView -->
+    <!-- Title -->
 
-    <!-- Search icon -->
+    <!-- Search Icon -->
 
-    <!-- Storage Text -->
+    <!-- Storage Analysis Text -->
 
-    <!-- Storage Capacity Text -->
-
-    <!-- Storage Progress Bar -->
-
+    <!-- Circular Progress Bar (To be customized for storage usage) -->
     <TextView
-        android:id="@+id/storage_text"
+        android:id="@+id/storage_analysis_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:padding="16dp"
-        android:text="Storage"
+        android:layout_marginTop="36dp"
+        android:text="Storage Analysis"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/storage_progress"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.297" />
-
-    <TextView
-        android:id="@+id/storage_capacity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:padding="16dp"
-        android:text="46GB/64GB"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toTopOf="@+id/storage_progress"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.006"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/storage_text"
-        app:layout_constraintVertical_bias="0.5" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ProgressBar
-        android:id="@+id/storage_progress"
-        style="@android:style/Widget.ProgressBar.Horizontal"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:progress="72"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/storage_capacity" />
-
-    <!-- Storage Availability Text -->
-    <TextView
-        android:id="@+id/storage_available"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:text="50% available"
-        android:textSize="12sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/storage_progress" />
-
-    <!-- See Details Text -->
-    <Button
-        android:id="@+id/see_details"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:text="See Details"
-        android:textColor="@android:color/holo_blue_light"
-        android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/storage_progress" />
-
-    <!-- Categories -->
-    <TextView
-        android:id="@+id/categories_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/circular_progress"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         android:layout_marginTop="16dp"
-        android:padding="16dp"
-        android:text="Categories"
-        android:textSize="16sp"
+        android:indeterminate="false"
+        android:max="100"
+        android:progress="72"
+        android:progressDrawable="@drawable/circular_progress_bar"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/storage_available" />
+        app:layout_constraintTop_toBottomOf="@id/storage_analysis_text" />
+
+    <!-- Storage Details in Text -->
+    <TextView
+        android:id="@+id/storage_used"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:text="46GB"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@id/circular_progress"
+        app:layout_constraintStart_toStartOf="@id/circular_progress"
+        app:layout_constraintTop_toTopOf="@id/circular_progress" />
+
+    <TextView
+        android:id="@+id/storage_total"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="64GB"
+        android:textColor="#A9A9A9"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@id/storage_used"
+        app:layout_constraintStart_toStartOf="@id/storage_used"
+        app:layout_constraintTop_toBottomOf="@id/storage_used" />
 
     <!-- Categories Section -->
     <LinearLayout
@@ -103,11 +70,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
         android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/categories_text">
+        app:layout_constraintTop_toBottomOf="@id/circular_progress">
 
         <LinearLayout
             android:layout_width="0dp"
@@ -126,6 +94,18 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="Files"
+                android:textSize="12sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3GB"
+                android:textSize="12sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3%"
                 android:textSize="12sp" />
         </LinearLayout>
 
@@ -147,6 +127,18 @@
                 android:layout_marginTop="8dp"
                 android:text="Images"
                 android:textSize="12sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="6GB"
+                android:textSize="12sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="6%"
+                android:textSize="12sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -167,6 +159,18 @@
                 android:layout_marginTop="8dp"
                 android:text="Videos"
                 android:textSize="12sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="8GB"
+                android:textSize="12sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="12%"
+                android:textSize="12sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -185,43 +189,45 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="Audio"
+                android:text="Audios"
+                android:textSize="12sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="5GB"
+                android:textSize="12sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="7%"
                 android:textSize="12sp" />
         </LinearLayout>
     </LinearLayout>
 
     <!-- All Files Button -->
-    <LinearLayout
-        android:id="@+id/all_files_button"
-        android:layout_width="match_parent"
+    <!--    <Button-->
+    <!--        android:id="@+id/button_file"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:text="All Files"-->
+    <!--        android:layout_margin="16dp"-->
+    <!--        android:background="@drawable/rounded_button"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/categories_layout"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"/>-->
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:layout_marginTop="112dp"
-        android:background="?attr/selectableItemBackground"
-        android:clickable="true"
-        android:focusable="true"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:padding="16dp"
+        android:text="All Files"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.531"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/categories_layout"
-        app:layout_constraintVertical_bias="0.254">
-
-        <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@drawable/file" />
-
-        <TextView
-            android:id="@+id/all_files_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:text="All Files"
-            android:textSize="14sp" />
-    </LinearLayout>
+        app:layout_constraintVertical_bias="0.307" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -20,6 +20,15 @@
         android:id="@+id/navigation_my_files"
         android:name="vn.edu.usth.dropboxui.ui.myfile.MyFileFragment"
         android:label="@string/title_my_files"
-        tools:layout="@layout/fragment_my_file" />
+        tools:layout="@layout/fragment_my_file" >
+        <action
+            android:id="@+id/action_navigation_my_files_to_storageFragment2"
+            app:destination="@id/storageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/storageFragment"
+        android:name="vn.edu.usth.dropboxui.ui.myfile.StorageFragment"
+        android:label="@string/title_storage"
+        tools:layout="@layout/fragment_storage" />
 
 </navigation>

@@ -10,24 +10,28 @@ import androidx.lifecycle.ViewModelProvider;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
+import androidx.navigation.Navigation;
 import vn.edu.usth.dropboxui.R;
 
 public class MyFileFragment extends Fragment {
 
-    private MyFileViewModel myFileViewModel;
+
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_my_file, container, false);
-        myFileViewModel = new ViewModelProvider(this).get(MyFileViewModel.class);
-        myFileViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+
+        Button seeDetailsButton = root.findViewById(R.id.see_details);
+        seeDetailsButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onChanged(@Nullable String s) {
-                // Handle the observed data here if needed
+            public void onClick(View v) {
+                Navigation.findNavController(v).navigate(R.id.storageFragment);
             }
         });
+
         return root;
     }
 }
