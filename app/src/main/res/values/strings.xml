@@ -2,8 +2,19 @@
     <string name="app_name">DropBoxUI</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
-    <string name="title_my_files">My File</string>
-    <string name="title_storage">Storage</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="welcome">Take your stuff \n anywhere</string>
+    <string name="sign_in_with_google">Sign in with Google</string>
+    <string name="sign_in_with_apple">Sign in with Apple</string>
+    <string name="or">Or</string>
+    <string name="continue_with_email">Continue with Email</string>
+    <string name="sign_up">Sign up</string>
+    <string name="already_have_an_account">Already have an account?</string>
+    <string name="sign_in">Sign in</string>
+    <string name="email_hint">Email</string>
+    <string name="password_hint">Password</string>
+    <string name="log_in_to_dropbox">Log in to Dropbox</string>
+    <string name="having_trouble_logging_in">Having trouble logging in?</string>
+    <string name="log_in_with_google">Log in with Google</string>
+    <string name="log_in">Log in</string>
 </resources>
