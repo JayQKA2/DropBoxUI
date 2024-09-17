@@ -11,10 +11,20 @@
     <string name="sign_up">Sign up</string>
     <string name="already_have_an_account">Already have an account?</string>
     <string name="sign_in">Sign in</string>
+
     <string name="email_hint">Email</string>
     <string name="password_hint">Password</string>
     <string name="log_in_to_dropbox">Log in to Dropbox</string>
     <string name="having_trouble_logging_in">Having trouble logging in?</string>
     <string name="log_in_with_google">Log in with Google</string>
     <string name="log_in">Log in</string>
+    <string name="welcome_to_dropbox_2">Welcome to dropbox</string>
+    <string name="continue_with_google">Continue with Google</string>
+    <string name="continue_email">Continue with Email</string>
+    <string name="having_trouble_signing_in">Having trouble signing in?</string>
+    <string name="title_my_files">My Files</string>
+    <string name="title_storage">Storage</string>
+    <string name="title_settings">Settings</string>
+    <string name="title_help">Help</string>
+    <string name="title_feedback">Feedback</string>
 </resources>

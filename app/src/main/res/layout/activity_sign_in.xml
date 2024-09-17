@@ -68,17 +68,16 @@
             android:backgroundTint="@color/white"
             android:textColorHint="@color/gray" />
 
-            <Button
-                android:id="@+id/continue_btn"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:cornerRadius="0dp"
-                android:layout_margin="@dimen/layout_margin"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-                android:textStyle="bold"
-                android:text="@string/log_in"/>
 
-
+        <Button
+            android:id="@+id/continue_btn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/layout_margin"
+            android:text="@string/log_in"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textStyle="bold"
+            app:cornerRadius="0dp" />
 
         <FrameLayout
             android:id="@+id/login_with_apple"
