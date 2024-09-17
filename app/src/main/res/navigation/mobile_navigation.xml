@@ -16,10 +16,19 @@
         android:name="vn.edu.usth.dropboxui.ui.dashboard.DashboardFragment"
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_dashboard" />
-
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="vn.edu.usth.dropboxui.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navigation_my_files"
+        android:name="vn.edu.usth.dropboxui.ui.myfile.MyFileFragment"
+        android:label="@string/title_my_files"
+        tools:layout="@layout/fragment_my_file" >
+        <action
+            android:id="@+id/action_navigation_my_files_to_storageFragment2"
+            app:destination="@id/storageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/storageFragment"
+        android:name="vn.edu.usth.dropboxui.ui.myfile.StorageFragment"
+        android:label="@string/title_storage"
+        tools:layout="@layout/fragment_storage" />
+
 </navigation>
