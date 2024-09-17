@@ -4,34 +4,47 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 
-import vn.edu.usth.dropboxui.databinding.FragmentHomeBinding;
+import vn.edu.usth.dropboxui.R;
 
 public class HomeFragment extends Fragment {
 
-    private FragmentHomeBinding binding;
-
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-        HomeViewModel homeViewModel =
-                new ViewModelProvider(this).get(HomeViewModel.class);
-
-        binding = FragmentHomeBinding.inflate(inflater, container, false);
-        View root = binding.getRoot();
-
-        final TextView textView = binding.textHome;
-        homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
-        return root;
-    }
+    Button musicButton, moviesButton, picturesButton;
 
     @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        binding = null;
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View root = inflater.inflate(R.layout.fragment_home, container, false);
+
+        musicButton = root.findViewById(R.id.musicButton);
+        moviesButton = root.findViewById(R.id.moviesButton);
+        picturesButton = root.findViewById(R.id.picturesButton);
+
+        musicButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getActivity(), "Music button clicked", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        moviesButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getActivity(), "Movies button clicked", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        picturesButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getActivity(), "Pictures button clicked", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        return root;
     }
 }

@@ -3,7 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@color/black"
+    android:paddingTop="?attr/actionBarSize">
 
     <!-- Navigation icon -->
 
@@ -24,6 +26,7 @@
         android:layout_marginStart="16dp"
         android:padding="16dp"
         android:text="Storage"
+        android:textColor="@color/white"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/storage_progress"
         app:layout_constraintEnd_toEndOf="parent"
@@ -39,6 +42,7 @@
         android:layout_marginStart="12dp"
         android:padding="16dp"
         android:text="46GB/64GB"
+        android:textColor="@color/white"
         android:textSize="14sp"
         app:layout_constraintBottom_toTopOf="@+id/storage_progress"
         app:layout_constraintEnd_toEndOf="parent"
@@ -68,6 +72,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:text="50% available"
+        android:textColor="@color/white"
         android:textSize="12sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/storage_progress" />
@@ -93,6 +98,7 @@
         android:layout_marginTop="16dp"
         android:padding="16dp"
         android:text="Categories"
+        android:textColor="@color/white"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/storage_available" />
@@ -126,6 +132,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="Files"
+                android:textColor="@color/white"
                 android:textSize="12sp" />
         </LinearLayout>
 
@@ -139,13 +146,14 @@
             <ImageView
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:src="@drawable/file" />
+                android:src="@drawable/image" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="Images"
+                android:textColor="@color/white"
                 android:textSize="12sp" />
         </LinearLayout>
 
@@ -159,13 +167,14 @@
             <ImageView
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:src="@drawable/file" />
+                android:src="@drawable/video" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="Videos"
+                android:textColor="@color/white"
                 android:textSize="12sp" />
         </LinearLayout>
 
@@ -179,13 +188,14 @@
             <ImageView
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:src="@drawable/file" />
+                android:src="@drawable/audio" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="Audio"
+                android:textColor="@color/white"
                 android:textSize="12sp" />
         </LinearLayout>
     </LinearLayout>
@@ -213,7 +223,7 @@
         <ImageView
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:src="@drawable/file" />
+            android:src="@drawable/allfile" />
 
         <TextView
             android:id="@+id/all_files_text"
@@ -221,6 +231,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:text="All Files"
+            android:textColor="@color/white"
             android:textSize="14sp" />
     </LinearLayout>
 
