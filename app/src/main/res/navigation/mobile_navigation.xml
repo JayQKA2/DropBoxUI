@@ -11,11 +11,7 @@
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
 
-    <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="vn.edu.usth.dropboxui.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+
     <fragment
         android:id="@+id/navigation_my_files"
         android:name="vn.edu.usth.dropboxui.ui.myfile.MyFileFragment"
@@ -30,5 +26,25 @@
         android:name="vn.edu.usth.dropboxui.ui.myfile.StorageFragment"
         android:label="@string/title_storage"
         tools:layout="@layout/fragment_storage" />
+    <fragment
+        android:id="@+id/navigation_user"
+        android:name="vn.edu.usth.dropboxui.ui.user.UserFragment"
+        android:label="User"
+        tools:layout="@layout/fragment_user" />
+    <activity
+        android:id="@+id/loginActivity"
+        android:name="vn.edu.usth.dropboxui.LoginActivity"
+        android:label="activity_login"
+        tools:layout="@layout/activity_login" />
+    <activity
+        android:id="@+id/signInActivity"
+        android:name="vn.edu.usth.dropboxui.SignInActivity"
+        android:label="activity_sign_in"
+        tools:layout="@layout/activity_sign_in" />
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="vn.edu.usth.dropboxui.MainActivity"
+        android:label="fragment_my_file"
+        tools:layout="@layout/fragment_my_file" />
 
 </navigation>
