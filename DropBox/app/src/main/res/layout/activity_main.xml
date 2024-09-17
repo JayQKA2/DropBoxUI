@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="#F5F5F5">
+
+    <!-- Music -->
+    <Button
+        android:id="@+id/musicButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Music"
+        android:textSize="18sp"
+        android:drawableLeft="@drawable/music"
+        android:drawablePadding="5dp"
+        android:backgroundTint="#FFCDD2"
+        android:textColor="#000"
+        android:padding="8dp"
+        android:layout_marginBottom="4dp" />
+
+    <!-- Movies -->
+    <Button
+        android:id="@+id/moviesButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Movies"
+        android:textSize="18sp"
+        android:drawableLeft="@drawable/videos"
+        android:drawablePadding="5dp"
+        android:backgroundTint="#BBDEFB"
+        android:textColor="#000"
+        android:padding="8dp"
+        android:layout_marginBottom="4dp" />
+
+    <!-- Pictures -->
+    <Button
+        android:id="@+id/picturesButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pictures"
+        android:textSize="18sp"
+        android:drawableLeft="@drawable/image"
+        android:drawablePadding="5dp"
+        android:backgroundTint="#C8E6C9"
+        android:textColor="#000"
+        android:padding="8dp"
+        android:layout_marginBottom="4dp" />
+
+</LinearLayout>
