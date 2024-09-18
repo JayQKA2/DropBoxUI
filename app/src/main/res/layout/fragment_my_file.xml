@@ -7,17 +7,6 @@
     android:background="@color/black"
     android:paddingTop="?attr/actionBarSize">
 
-    <!-- Navigation icon -->
-
-    <!-- Title TextView -->
-
-    <!-- Search icon -->
-
-    <!-- Storage Text -->
-
-    <!-- Storage Capacity Text -->
-
-    <!-- Storage Progress Bar -->
 
     <TextView
         android:id="@+id/storage_text"
