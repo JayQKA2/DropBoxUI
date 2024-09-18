@@ -33,4 +33,9 @@
     <string name="home_viewed_links_text">Links you\'ve previously viewed show up here.</string>
     <string name="todo">TODO</string>
     <string name="sign_out_of_this_dropbox">Sign out of this Dropbox</string>
+    <string name="trouble_signing_in">Trouble signing in</string>
+    <string name="forgot_your_password">Forgot your password?</string>
+    <string name="single_sign_on">Single sign-on</string>
+    <string name="email_me_a_sign_in_link">Email me a sign-in link</string>
+    <string name="sign_in_with_apple_id">Sign in with Apple ID</string>
 </resources>
