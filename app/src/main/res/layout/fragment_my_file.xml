@@ -53,7 +53,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/storage_capacity" />
 
-    <!-- Storage Availability Text -->
     <TextView
         android:id="@+id/storage_available"
         android:layout_width="wrap_content"
@@ -66,7 +65,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/storage_progress" />
 
-    <!-- See Details Text -->
+
     <Button
         android:id="@+id/see_details"
         android:layout_width="wrap_content"
@@ -79,7 +78,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/storage_progress" />
 
-    <!-- Categories -->
     <TextView
         android:id="@+id/categories_text"
         android:layout_width="wrap_content"
@@ -92,7 +90,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/storage_available" />
 
-    <!-- Categories Section -->
     <LinearLayout
         android:id="@+id/categories_layout"
         android:layout_width="match_parent"
@@ -188,8 +185,6 @@
                 android:textSize="12sp" />
         </LinearLayout>
     </LinearLayout>
-
-    <!-- All Files Button -->
     <LinearLayout
         android:id="@+id/all_files_button"
         android:layout_width="match_parent"

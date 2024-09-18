@@ -9,7 +9,17 @@
         android:id="@+id/navigation_home"
         android:name="vn.edu.usth.dropboxui.ui.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_navigation_home_to_movieFragment"
+            app:destination="@id/movieFragment" />
+        <action
+            android:id="@+id/action_navigation_home_to_musicFragment"
+            app:destination="@id/musicFragment" />
+        <action
+            android:id="@+id/action_navigation_home_to_picturesFragment"
+            app:destination="@id/picturesFragment" />
+    </fragment>
 
 
     <fragment
@@ -46,5 +56,32 @@
         android:name="vn.edu.usth.dropboxui.MainActivity"
         android:label="fragment_my_file"
         tools:layout="@layout/fragment_my_file" />
+    <fragment
+        android:id="@+id/movieFragment"
+        android:name="vn.edu.usth.dropboxui.ui.home.MovieFragment"
+        android:label="fragment_movie"
+        tools:layout="@layout/fragment_movie" >
+        <action
+            android:id="@+id/action_movieFragment_to_navigation_home"
+            app:destination="@id/navigation_home" />
+    </fragment>
+    <fragment
+        android:id="@+id/musicFragment"
+        android:name="vn.edu.usth.dropboxui.ui.home.MusicFragment"
+        android:label="fragment_music"
+        tools:layout="@layout/fragment_music" >
+        <action
+            android:id="@+id/action_musicFragment_to_navigation_home"
+            app:destination="@id/navigation_home" />
+    </fragment>
+    <fragment
+        android:id="@+id/picturesFragment"
+        android:name="vn.edu.usth.dropboxui.ui.home.PicturesFragment"
+        android:label="fragment_pictures"
+        tools:layout="@layout/fragment_pictures" >
+        <action
+            android:id="@+id/action_picturesFragment_to_navigation_home"
+            app:destination="@id/navigation_home" />
+    </fragment>
 
 </navigation>
