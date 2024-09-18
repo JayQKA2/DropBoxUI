@@ -7,15 +7,7 @@
     android:background="@color/black"
     android:paddingTop="?attr/actionBarSize">
 
-    <!-- Navigation Icon -->
 
-    <!-- Title -->
-
-    <!-- Search Icon -->
-
-    <!-- Storage Analysis Text -->
-
-    <!-- Circular Progress Bar (To be customized for storage usage) -->
     <TextView
         android:id="@+id/storage_analysis_text"
         android:layout_width="wrap_content"
@@ -42,7 +34,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/storage_analysis_text" />
 
-    <!-- Storage Details in Text -->
+
     <TextView
         android:id="@+id/storage_used"
         android:layout_width="wrap_content"
@@ -68,7 +60,7 @@
         app:layout_constraintStart_toStartOf="@id/storage_used"
         app:layout_constraintTop_toBottomOf="@id/storage_used" />
 
-    <!-- Categories Section -->
+
     <LinearLayout
         android:id="@+id/categories_layout"
         android:layout_width="match_parent"
