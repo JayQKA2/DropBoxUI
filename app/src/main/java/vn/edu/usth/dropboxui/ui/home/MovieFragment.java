@@ -12,6 +12,12 @@ import vn.edu.usth.dropboxui.R;
 
 
 public class MovieFragment extends Fragment {
+    @Override
+    public void onCreate (Bundle saveInstanceState) {
+        super.onCreate(saveInstanceState);
+
+
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

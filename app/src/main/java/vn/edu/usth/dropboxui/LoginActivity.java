@@ -20,7 +20,6 @@ public class LoginActivity extends AppCompatActivity {
         signInTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(LoginActivity.this, "Sign In clicked", Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(LoginActivity.this, SignInActivity.class);
                 startActivity(intent);
             }
