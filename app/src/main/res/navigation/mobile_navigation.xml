@@ -39,27 +39,27 @@
     <fragment
         android:id="@+id/navigation_user"
         android:name="vn.edu.usth.dropboxui.ui.user.UserFragment"
-        android:label="User"
+        android:label="@string/title_user"
         tools:layout="@layout/fragment_user" />
     <activity
         android:id="@+id/loginActivity"
         android:name="vn.edu.usth.dropboxui.LoginActivity"
-        android:label="activity_login"
+        android:label="@string/log_in"
         tools:layout="@layout/activity_login" />
     <activity
         android:id="@+id/signInActivity"
         android:name="vn.edu.usth.dropboxui.SignInActivity"
-        android:label="activity_sign_in"
+        android:label="@string/sign_in"
         tools:layout="@layout/activity_sign_in" />
     <activity
         android:id="@+id/mainActivity"
         android:name="vn.edu.usth.dropboxui.MainActivity"
-        android:label="fragment_my_file"
+        android:label="@string/title_my_files"
         tools:layout="@layout/fragment_my_file" />
     <fragment
         android:id="@+id/movieFragment"
         android:name="vn.edu.usth.dropboxui.ui.home.MovieFragment"
-        android:label="fragment_movie"
+        android:label="@string/title_movie"
         tools:layout="@layout/fragment_movie" >
         <action
             android:id="@+id/action_movieFragment_to_navigation_home"
@@ -68,7 +68,7 @@
     <fragment
         android:id="@+id/musicFragment"
         android:name="vn.edu.usth.dropboxui.ui.home.MusicFragment"
-        android:label="fragment_music"
+        android:label="@string/title_music"
         tools:layout="@layout/fragment_music" >
         <action
             android:id="@+id/action_musicFragment_to_navigation_home"
@@ -77,7 +77,7 @@
     <fragment
         android:id="@+id/picturesFragment"
         android:name="vn.edu.usth.dropboxui.ui.home.PicturesFragment"
-        android:label="fragment_pictures"
+        android:label="@string/title_pictures"
         tools:layout="@layout/fragment_pictures" >
         <action
             android:id="@+id/action_picturesFragment_to_navigation_home"
