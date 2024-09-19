@@ -39,4 +39,10 @@
     <string name="email_me_a_sign_in_link">Email me a sign-in link</string>
     <string name="sign_in_with_apple_id">Sign in with Apple ID</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_movie">Movies</string>
+    <string name="title_music">Music</string>
+    <string name="title_pictures">Pictures</string>
+    <string name="title_user">User</string>
+    <string name="title_storage_fragment">Storage</string>
+    <string name="title_movie_fragment">Movies</string>
 </resources>

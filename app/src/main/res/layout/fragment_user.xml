@@ -33,7 +33,7 @@
                     android:id="@+id/user_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/username"
+                    android:text="Username"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     android:textColor="@color/white"/>
@@ -42,7 +42,7 @@
                     android:id="@+id/user_email"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/user_email"
+                    android:text="usergmail@gmail.com"
                     android:textSize="16sp"
                     android:textColor="@color/white"
                     android:layout_marginBottom="24dp"/>
@@ -53,32 +53,32 @@
             android:id="@+id/upgrade_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/upgrade"
+            android:text="Upgrade for more space"
             android:textColor="#FFF7F7"
             android:backgroundTint="@color/purple_200"
             android:layout_marginBottom="10dp"/>
 
-            <LinearLayout
-                android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="16dp"
+            android:background="?attr/selectableItemBackground">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_my_files"
+                android:contentDescription="My Files Icon"
+                android:layout_marginEnd="16dp"/>
+
+            <TextView
+                android:id="@+id/my_files_option"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="16dp"
-                android:background="?attr/selectableItemBackground">
-
-                <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/ic_my_files"
-                    android:contentDescription="My Files Icon"
-                    android:layout_marginEnd="16dp"/>
-
-                <TextView
-                    android:id="@+id/my_files_option"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/my_file"
-                    android:textColor="@color/white"
-                    android:textSize="16sp"/>
+                android:text="My file"
+                android:textColor="@color/white"
+                android:textSize="16sp"/>
         </LinearLayout>
 
         <LinearLayout
@@ -99,7 +99,7 @@
                 android:id="@+id/file_requests_option"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/file_requests"
+                android:text="File requests"
                 android:textColor="@color/white"
                 android:textSize="16sp"/>
         </LinearLayout>
@@ -122,7 +122,7 @@
                 android:id="@+id/offline_option"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/offline"
+                android:text="Offline"
                 android:textColor="@color/white"
                 android:textSize="16sp"/>
         </LinearLayout>
@@ -145,7 +145,7 @@
                 android:id="@+id/share_option"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/share"
+                android:text="Share"
                 android:textColor="@color/white"
                 android:textSize="16sp"/>
         </LinearLayout>
@@ -168,7 +168,7 @@
                 android:id="@+id/notifications_option"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/noti"
+                android:text="Notification"
                 android:textColor="@color/white"
                 android:textSize="16sp"/>
         </LinearLayout>
@@ -191,7 +191,7 @@
                 android:id="@+id/trash_option"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/trash"
+                android:text="Trash"
                 android:textColor="@color/white"
                 android:textSize="16sp"/>
         </LinearLayout>
@@ -214,7 +214,7 @@
                 android:id="@+id/settings_option"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/setting_n_account"
+                android:text="Setting and Account"
                 android:textColor="@color/white"
                 android:textSize="16sp"/>
         </LinearLayout>
