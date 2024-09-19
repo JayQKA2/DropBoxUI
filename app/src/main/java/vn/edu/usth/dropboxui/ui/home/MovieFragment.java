@@ -11,6 +11,12 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import vn.edu.usth.dropboxui.R;
 
 public class MovieFragment extends Fragment {
+    @Override
+    public void onCreate (Bundle saveInstanceState) {
+        super.onCreate(saveInstanceState);
+
+
+    }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
