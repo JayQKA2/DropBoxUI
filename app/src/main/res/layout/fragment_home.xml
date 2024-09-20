@@ -49,14 +49,14 @@
         android:id="@+id/picturesButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Pictures"
-        android:textSize="18sp"
+        android:layout_marginBottom="8dp"
+        android:backgroundTint="#C8E6C9"
         android:drawableLeft="@drawable/image1"
         android:drawablePadding="5dp"
-        android:backgroundTint="#C8E6C9"
-        android:textColor="#000"
         android:padding="8dp"
-        android:layout_marginBottom="8dp" />
+        android:text="Pictures"
+        android:textColor="#000"
+        android:textSize="18sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
