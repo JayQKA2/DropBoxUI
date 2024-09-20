@@ -26,6 +26,7 @@ public class SignInActivity extends AppCompatActivity {
 
     private LoggingProblem loggingProblem;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,8 +48,7 @@ public class SignInActivity extends AppCompatActivity {
         imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(SignInActivity.this, LoginActivity.class);
-                startActivity(intent);
+                onBackPressed();
             }
         });
 
