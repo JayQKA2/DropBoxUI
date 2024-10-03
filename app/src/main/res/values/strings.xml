@@ -45,4 +45,8 @@
     <string name="title_user">User</string>
     <string name="title_storage_fragment">Storage</string>
     <string name="title_movie_fragment">Movies</string>
+    <string name="create_an_account">Create an account</string>
+    <string name="first_name">First name</string>
+    <string name="sur_name">Sur name</string>
+    <string name="password">Password</string>
 </resources>
