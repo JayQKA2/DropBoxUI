@@ -93,7 +93,7 @@
             </FrameLayout>
 
             <Button
-                android:id="@+id/sign_up"
+                android:id="@+id/sign_up_btn"
                 android:layout_width="355dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/layout_margin"

@@ -238,6 +238,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/sign_out_of_this_dropbox"
                     android:textSize="16sp"
+                    android:id="@+id/sign_out_btn"
                     android:background="?android:attr/selectableItemBackground"
                     android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                     android:textColor="#A4161A" />

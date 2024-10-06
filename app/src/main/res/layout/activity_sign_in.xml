@@ -73,32 +73,31 @@
             android:layout_margin="@dimen/layout_margin"
             android:text="@string/log_in"
             android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-            android:textStyle="bold"
-            app:cornerRadius="0dp" />
+            android:textStyle="bold" />
 
         <FrameLayout
-            android:id="@+id/login_with_apple"
-            android:layout_width="match_parent"
+            android:id="@+id/sign_in_with_google"
+            android:layout_width="355dp"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/layout_margin"
             android:background="@color/coconut"
+            android:layout_margin="@dimen/layout_margin"
             android:padding="10dp">
 
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="start|center_vertical"
                 android:background="@color/coconut"
-                android:src="@drawable/ic_google" />
+                android:layout_gravity="start|center_vertical"
+                android:src="@drawable/ic_google"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="@string/log_in_with_google"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textStyle="bold"
                 android:textColor="@color/graphite"
-                android:textStyle="bold" />
+                android:text="@string/sign_in_with_google"/>
 
         </FrameLayout>
 

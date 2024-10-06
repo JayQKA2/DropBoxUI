@@ -162,7 +162,7 @@
         android:layout_marginStart="30dp"/>
 
     <FrameLayout
-        android:id="@+id/login_with_google"
+        android:id="@+id/signup_with_google"
         android:layout_width="355dp"
         android:layout_height="wrap_content"
         android:background="@color/coconut"
@@ -184,7 +184,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Body2"
             android:textStyle="bold"
             android:textColor="@color/graphite"
-            android:text="@string/sign_in_with_google"/>
+            android:text="@string/sign_up_with_google"/>
 
     </FrameLayout>
 
