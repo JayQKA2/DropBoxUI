@@ -19,6 +19,9 @@
         <action
             android:id="@+id/action_navigation_home_to_picturesFragment"
             app:destination="@id/picturesFragment" />
+        <action
+            android:id="@+id/action_navigation_home_to_fileFragment"
+            app:destination="@id/fileFragment" />
     </fragment>
 
 
@@ -81,6 +84,14 @@
         tools:layout="@layout/fragment_pictures" >
         <action
             android:id="@+id/action_picturesFragment_to_navigation_home"
+            app:destination="@id/navigation_home" />
+    </fragment>
+    <fragment
+        android:id="@+id/fileFragment"
+        android:name="vn.edu.usth.dropboxui.ui.home.FileFragment"
+        android:label="FileFragment" >
+        <action
+            android:id="@+id/action_fileFragment_to_navigation_home"
             app:destination="@id/navigation_home" />
     </fragment>
 

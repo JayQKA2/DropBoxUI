@@ -15,7 +15,7 @@ import vn.edu.usth.dropboxui.R;
 
 public class HomeFragment extends Fragment {
 
-    Button musicButton, moviesButton, picturesButton;
+    Button musicButton, moviesButton, picturesButton , FileButton;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -24,6 +24,8 @@ public class HomeFragment extends Fragment {
         musicButton = root.findViewById(R.id.musicButton);
         moviesButton = root.findViewById(R.id.moviesButton);
         picturesButton = root.findViewById(R.id.picturesButton);
+        FileButton = root.findViewById(R.id.FileButton);
+
 
         musicButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,6 +48,14 @@ public class HomeFragment extends Fragment {
             public void onClick(View view) {
                 NavController navController = Navigation.findNavController(view);
                 navController.navigate(R.id.picturesFragment);
+            }
+        });
+
+        FileButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavController navController = Navigation.findNavController(view);
+                navController.navigate(R.id.fileFragment);
             }
         });
 
