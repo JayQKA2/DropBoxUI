@@ -57,6 +57,18 @@
         android:text="Pictures"
         android:textColor="#000"
         android:textSize="18sp" />
+    <Button
+        android:id="@+id/FileButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:backgroundTint="#DEC8E6"
+        android:drawableLeft="@drawable/document"
+        android:drawablePadding="5dp"
+        android:padding="8dp"
+        android:text="Files"
+        android:textColor="#000"
+        android:textSize="18sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
