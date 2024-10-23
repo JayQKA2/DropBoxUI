@@ -18,7 +18,7 @@ import vn.edu.usth.dropboxui.ListFloder.Metadata;
 
 public class APICall extends AppCompatActivity {
     private static final String BASE_URL = "https://api.dropboxapi.com/";
-    private static final String ACCESS_TOKEN = "Bearer sl.B-5WbYsKiRFduxZyEHguFH_j3opgoB6p5DrVZUsFbek6bK0AUtamnGujahioTVTJ-T6-3dYpMt6-xhcCmg_CGTJ35gSLBuyAz11VPfGawF-mtcjMMAb3c6ynhR0Gy6gXfZhxgBkG0xXSDlpzSCJ1H7g";
+    private static final String ACCESS_TOKEN = "Bearer sl.B-83JF6FRPGlvCFq4yqi-RIj5XGWaW7dZkIzBsMeSCxj5_ccoJfEesKU2-HqVZkS-jEcyVru07np0VJLOQKA8sBvD4hu0sShD2xJDJdLOydL-Q5Yw6KCnSN9rMW_0UvgOX21bKDbv6yGjP2KRx8o1Fs";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

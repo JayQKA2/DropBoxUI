@@ -59,8 +59,6 @@
         app:layout_constraintEnd_toEndOf="@id/storage_used"
         app:layout_constraintStart_toStartOf="@id/storage_used"
         app:layout_constraintTop_toBottomOf="@id/storage_used" />
-
-
     <LinearLayout
         android:id="@+id/categories_layout"
         android:layout_width="match_parent"
@@ -94,16 +92,10 @@
                 android:textSize="12sp" />
 
             <TextView
+                android:id="@+id/file_percentage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="3GB"
-                android:textColor="@color/white"
-                android:textSize="12sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="3%"
+                android:text="0%"
                 android:textColor="@color/white"
                 android:textSize="12sp" />
         </LinearLayout>
@@ -129,16 +121,10 @@
                 android:textSize="12sp" />
 
             <TextView
+                android:id="@+id/image_percentage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="6GB"
-                android:textColor="@color/white"
-                android:textSize="12sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="6%"
+                android:text="0%"
                 android:textColor="@color/white"
                 android:textSize="12sp" />
         </LinearLayout>
@@ -164,16 +150,10 @@
                 android:textSize="12sp" />
 
             <TextView
+                android:id="@+id/video_percentage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="8GB"
-                android:textColor="@color/white"
-                android:textSize="12sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="12%"
+                android:text="0%"
                 android:textColor="@color/white"
                 android:textSize="12sp" />
         </LinearLayout>
@@ -199,31 +179,194 @@
                 android:textSize="12sp" />
 
             <TextView
+                android:id="@+id/audio_percentage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="5GB"
+                android:text="0%"
                 android:textColor="@color/white"
                 android:textSize="12sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
 
             <TextView
+                android:id="@+id/other_percentage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="7%"
+                android:text="0%"
                 android:textColor="@color/white"
                 android:textSize="12sp" />
         </LinearLayout>
     </LinearLayout>
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="All Files"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/categories_layout"
-        app:layout_constraintVertical_bias="0.307" />
+<!--    <LinearLayout-->
+<!--        android:id="@+id/categories_layout"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="16dp"-->
+<!--        android:layout_marginTop="32dp"-->
+<!--        android:layout_marginEnd="16dp"-->
+<!--        android:orientation="horizontal"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/circular_progress">-->
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="1"-->
+<!--            android:gravity="center"-->
+<!--            android:orientation="vertical">-->
+
+<!--            <ImageView-->
+<!--                android:layout_width="50dp"-->
+<!--                android:layout_height="50dp"-->
+<!--                android:src="@drawable/file" />-->
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="8dp"-->
+<!--                android:text="Files"-->
+<!--                android:textColor="@color/white"-->
+<!--                android:textSize="12sp" />-->
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="3GB"-->
+<!--                android:textColor="@color/white"-->
+<!--                android:textSize="12sp" />-->
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="3%"-->
+<!--                android:textColor="@color/white"-->
+<!--                android:textSize="12sp" />-->
+<!--        </LinearLayout>-->
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="1"-->
+<!--            android:gravity="center"-->
+<!--            android:orientation="vertical">-->
+
+<!--            <ImageView-->
+<!--                android:layout_width="50dp"-->
+<!--                android:layout_height="50dp"-->
+<!--                android:src="@drawable/image" />-->
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="8dp"-->
+<!--                android:text="Images"-->
+<!--                android:textColor="@color/white"-->
+<!--                android:textSize="12sp" />-->
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="6GB"-->
+<!--                android:textColor="@color/white"-->
+<!--                android:textSize="12sp" />-->
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="6%"-->
+<!--                android:textColor="@color/white"-->
+<!--                android:textSize="12sp" />-->
+<!--        </LinearLayout>-->
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="1"-->
+<!--            android:gravity="center"-->
+<!--            android:orientation="vertical">-->
+
+<!--            <ImageView-->
+<!--                android:layout_width="50dp"-->
+<!--                android:layout_height="50dp"-->
+<!--                android:src="@drawable/video" />-->
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="8dp"-->
+<!--                android:text="Videos"-->
+<!--                android:textColor="@color/white"-->
+<!--                android:textSize="12sp" />-->
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="8GB"-->
+<!--                android:textColor="@color/white"-->
+<!--                android:textSize="12sp" />-->
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="12%"-->
+<!--                android:textColor="@color/white"-->
+<!--                android:textSize="12sp" />-->
+<!--        </LinearLayout>-->
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="1"-->
+<!--            android:gravity="center"-->
+<!--            android:orientation="vertical">-->
+
+<!--            <ImageView-->
+<!--                android:layout_width="50dp"-->
+<!--                android:layout_height="50dp"-->
+<!--                android:src="@drawable/audio" />-->
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="8dp"-->
+<!--                android:text="Audios"-->
+<!--                android:textColor="@color/white"-->
+<!--                android:textSize="12sp" />-->
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="5GB"-->
+<!--                android:textColor="@color/white"-->
+<!--                android:textSize="12sp" />-->
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="7%"-->
+<!--                android:textColor="@color/white"-->
+<!--                android:textSize="12sp" />-->
+<!--        </LinearLayout>-->
+<!--    </LinearLayout>-->
+
+<!--    <Button-->
+<!--        android:id="@+id/button"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="All Files"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.498"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/categories_layout"-->
+<!--        app:layout_constraintVertical_bias="0.307" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

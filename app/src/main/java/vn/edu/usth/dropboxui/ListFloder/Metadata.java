@@ -10,7 +10,6 @@ public class Metadata {
     @SerializedName("path_lower")
     private String pathLower;
 
-    // Add getter method for pathLower
     public String getPathLower() {
         return pathLower;
     }
@@ -18,6 +17,15 @@ public class Metadata {
     public String getName() {
         return name;
     }
+        private long size;
 
-    // Getters for other fields (if needed)
+        public long getSize() {
+            return size;
+        }
+
+        public void setSize(long size) {
+            this.size = size;
+        }
+
+
 }
