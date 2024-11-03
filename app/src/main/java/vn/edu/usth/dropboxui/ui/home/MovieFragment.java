@@ -1,39 +1,40 @@
 package vn.edu.usth.dropboxui.ui.home;
 
-import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.android.volley.Request;
+import com.android.volley.VolleyLog;
+import com.android.volley.toolbox.StringRequest;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import java.io.IOException;
-import java.io.InputStream;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
-import okhttp3.MediaType;
-import okhttp3.RequestBody;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import vn.edu.usth.dropboxui.DropboxApi;
+import java.util.Map;
+
+import vn.edu.usth.dropboxui.ApiConfig;
 import vn.edu.usth.dropboxui.R;
-import vn.edu.usth.dropboxui.RetrofitClient;
-import vn.edu.usth.dropboxui.UploadSesion.UploadSessionStartResult;
+import vn.edu.usth.dropboxui.model.MySingleton;
 
 public class MovieFragment extends Fragment {
-    private static final String BASE_URL = "https://content.dropboxapi.com/";
-    private static final String ACCESS_TOKEN = "Bearer sl.B-83JF6FRPGlvCFq4yqi-RIj5XGWaW7dZkIzBsMeSCxj5_ccoJfEesKU2-HqVZkS-jEcyVru07np0VJLOQKA8sBvD4hu0sShD2xJDJdLOydL-Q5Yw6KCnSN9rMW_0UvgOX21bKDbv6yGjP2KRx8o1Fs";
-    private static final int PICK_MOVIE_REQUEST_CODE = 3;
-
+    private static final String TAG = "MovieFragment";
+    private static final String API_URL = "https://api.dropboxapi.com/2/files/list_folder";
     private RecyclerView recyclerView;
     private MovieAdapter adapter;
     private List<String> movieUrls;
@@ -45,144 +46,81 @@ public class MovieFragment extends Fragment {
 
         recyclerView = view.findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-
         movieUrls = new ArrayList<>();
         adapter = new MovieAdapter(getContext(), movieUrls);
         recyclerView.setAdapter(adapter);
 
-        FloatingActionButton uploadButton = view.findViewById(R.id.uploadButton2);
-        uploadButton.setOnClickListener(v -> {
-            Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+        FloatingActionButton addButton = view.findViewById(R.id.uploadButton2);
+        addButton.setOnClickListener(v -> {
+            // Handle add movie button click
+            Intent intent = new Intent(Intent.ACTION_PICK);
             intent.setType("video/*");
-            startActivityForResult(intent, PICK_MOVIE_REQUEST_CODE);
+            startActivityForResult(intent, 3);
         });
 
-        loadMoviesFromApi();
+        fetchMovies();
 
         return view;
+    }
+
+    private void fetchMovies() {
+        String accessToken = ApiConfig.getAccessToken();
+        if (accessToken == null) {
+            Log.e(TAG, "Access token is null");
+            return;
+        }
+
+        StringRequest movieRequest = new StringRequest(
+                Request.Method.POST,
+                API_URL,
+                response -> {
+                    try {
+                        JSONObject jsonResponse = new JSONObject(response);
+                        JSONArray entries = jsonResponse.getJSONArray("entries");
+                        for (int i = 0; i < entries.length(); i++) {
+                            JSONObject entry = entries.getJSONObject(i);
+                            String movieUrl = entry.getString("path_display");
+                            movieUrls.add(movieUrl);
+                        }
+                        adapter.notifyDataSetChanged();
+                    } catch (JSONException e) {
+                        Log.e(TAG, "JSON parsing error: " + e.getMessage());
+                    }
+                },
+                error -> {
+                    VolleyLog.d(TAG, "Error: " + error.getMessage());
+                    error.printStackTrace();
+                }
+        ) {
+            @Override
+            public String getBodyContentType() {
+                return "application/json; charset=UTF-8";
+            }
+
+            @Override
+            public byte[] getBody() {
+                String requestBody = "{\"path\": \"\"}";
+                return requestBody.getBytes();
+            }
+
+            @Override
+            public Map<String, String> getHeaders() {
+                Map<String, String> headers = new HashMap<>();
+                headers.put("Authorization", accessToken);
+                headers.put("Content-Type", "application/json");
+                return headers;
+            }
+        };
+
+        MySingleton.getInstance(getContext()).addToRequestQueue(movieRequest);
     }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == PICK_MOVIE_REQUEST_CODE && resultCode == getActivity().RESULT_OK && data != null) {
-            Uri uri = data.getData();
-            if (uri != null) {
-                uploadMovie(getContext(), uri, "/path/in/dropbox");
-            }
+        if (requestCode == 3 && resultCode == getActivity().RESULT_OK && data != null) {
+            // Handle the movie selected from gallery
+            // You can upload the movie to Dropbox here
         }
-    }
-
-    public void uploadMovie(Context context, Uri uri, String dropboxPath) {
-        Retrofit retrofit = RetrofitClient.getClient(BASE_URL);
-        DropboxApi dropboxApi = retrofit.create(DropboxApi.class);
-
-        try {
-            InputStream inputStream = context.getContentResolver().openInputStream(uri);
-            byte[] buffer = new byte[1024 * 1024]; // 1MB buffer
-            int bytesRead;
-            while ((bytesRead = inputStream.read(buffer)) != -1) {
-                // Process the buffer
-                RequestBody requestBody = RequestBody.create(MediaType.parse("application/octet-stream"), buffer, 0, bytesRead);
-                String dropboxApiArg = "{\"path\": \"" + dropboxPath + "\",\"mode\": \"add\",\"autorename\": true,\"mute\": false,\"strict_conflict\": false}";
-
-                Call<UploadSessionStartResult> startCall = dropboxApi.startUploadSession(ACCESS_TOKEN, "{}", requestBody);
-                startCall.enqueue(new Callback<UploadSessionStartResult>() {
-                    @Override
-                    public void onResponse(Call<UploadSessionStartResult> call, Response<UploadSessionStartResult> response) {
-                        if (response.isSuccessful()) {
-                            String sessionId = response.body().getSessionId();
-                            Log.d("MovieFragment", "Upload session started: " + sessionId);
-
-                            final int[] offset = {0};
-                            int chunkSize = 1024 * 1024; // 1MB chunk size
-                            while (offset[0] < buffer.length) {
-                                int remaining = buffer.length - offset[0];
-                                int currentChunkSize = Math.min(chunkSize, remaining);
-                                byte[] chunk = new byte[currentChunkSize];
-                                System.arraycopy(buffer, offset[0], chunk, 0, currentChunkSize);
-
-                                RequestBody chunkRequestBody = RequestBody.create(MediaType.parse("application/octet-stream"), chunk);
-                                String appendArg = "{\"cursor\": {\"session_id\": \"" + sessionId + "\", \"offset\": " + offset[0] + "}}";
-
-                                Call<Void> appendCall = dropboxApi.appendUploadSession(ACCESS_TOKEN, appendArg, chunkRequestBody);
-                                appendCall.enqueue(new Callback<Void>() {
-                                    @Override
-                                    public void onResponse(Call<Void> call, Response<Void> response) {
-                                        if (response.isSuccessful()) {
-                                            offset[0] += currentChunkSize;
-                                        } else {
-                                            Log.e("MovieFragment", "Append upload session failed: " + response.message());
-                                        }
-                                    }
-
-                                    @Override
-                                    public void onFailure(Call<Void> call, Throwable t) {
-                                        Log.e("MovieFragment", "Network error: " + t.getMessage());
-                                    }
-                                });
-                            }
-
-                            String finishArg = "{\"cursor\": {\"session_id\": \"" + sessionId + "\", \"offset\": " + buffer.length + "}, \"commit\": {\"path\": \"" + dropboxPath + "\", \"mode\": \"add\", \"autorename\": true, \"mute\": false, \"strict_conflict\": false}}";
-                            Call<Void> finishCall = dropboxApi.finishUploadSession(ACCESS_TOKEN, finishArg, requestBody);
-                            finishCall.enqueue(new Callback<Void>() {
-                                @Override
-                                public void onResponse(Call<Void> call, Response<Void> response) {
-                                    if (response.isSuccessful()) {
-                                        Log.d("MovieFragment", "Upload session finished");
-                                    } else {
-                                        Log.e("MovieFragment", "Finish upload session failed: " + response.message());
-                                    }
-                                }
-
-                                @Override
-                                public void onFailure(Call<Void> call, Throwable t) {
-                                    Log.e("MovieFragment", "Network error: " + t.getMessage());
-                                }
-                            });
-                        } else {
-                            try {
-                                Log.e("MovieFragment", "Start upload session failed: " + response.errorBody().string());
-                            } catch (IOException e) {
-                                Log.e("MovieFragment", "Error reading error body", e);
-                            }
-                        }
-                    }
-
-                    @Override
-                    public void onFailure(Call<UploadSessionStartResult> call, Throwable t) {
-                        Log.e("MovieFragment", "Network error: " + t.getMessage());
-                    }
-                });
-            }
-            inputStream.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void loadMoviesFromApi() {
-        Retrofit retrofit = RetrofitClient.getClient(BASE_URL);
-        DropboxApi dropboxApi = retrofit.create(DropboxApi.class);
-
-        Call<List<String>> call = dropboxApi.getImages(ACCESS_TOKEN);
-        call.enqueue(new Callback<List<String>>() {
-            @Override
-            public void onResponse(Call<List<String>> call, Response<List<String>> response) {
-                if (response.isSuccessful() && response.body() != null) {
-                    movieUrls.clear();
-                    movieUrls.addAll(response.body());
-                    adapter.notifyDataSetChanged();
-                    Log.d("MovieFragment", "Movies loaded successfully");
-                } else {
-                    Log.e("MovieFragment", "Failed to load movies: " + response.message());
-                }
-            }
-
-            @Override
-            public void onFailure(Call<List<String>> call, Throwable t) {
-                Log.e("MovieFragment", "Network error: " + t.getMessage());
-            }
-        });
     }
 }

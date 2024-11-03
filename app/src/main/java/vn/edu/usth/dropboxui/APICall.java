@@ -1,3 +1,4 @@
+// APICall.java
 package vn.edu.usth.dropboxui;
 
 import android.os.Bundle;
@@ -17,9 +18,6 @@ import vn.edu.usth.dropboxui.ListFloder.ListFolderResult;
 import vn.edu.usth.dropboxui.ListFloder.Metadata;
 
 public class APICall extends AppCompatActivity {
-    private static final String BASE_URL = "https://api.dropboxapi.com/";
-    private static final String ACCESS_TOKEN = "Bearer sl.B-83JF6FRPGlvCFq4yqi-RIj5XGWaW7dZkIzBsMeSCxj5_ccoJfEesKU2-HqVZkS-jEcyVru07np0VJLOQKA8sBvD4hu0sShD2xJDJdLOydL-Q5Yw6KCnSN9rMW_0UvgOX21bKDbv6yGjP2KRx8o1Fs";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,7 +27,7 @@ public class APICall extends AppCompatActivity {
     }
 
     private void uploadFileToDropbox(String localFilePath, String dropboxPath) {
-        Retrofit retrofit = RetrofitClient.getClient(BASE_URL);
+        Retrofit retrofit = RetrofitClient.getClient(ApiConfig.BASE_URL);
         DropboxApi dropboxApi = retrofit.create(DropboxApi.class);
 
         File file = new File(localFilePath);
@@ -37,14 +35,21 @@ public class APICall extends AppCompatActivity {
 
         String dropboxApiArg = "{\"path\": \"" + dropboxPath + "\",\"mode\": \"add\",\"autorename\": true,\"mute\": false,\"strict_conflict\": false}";
 
-        Call<Metadata> call = dropboxApi.uploadFile(ACCESS_TOKEN, dropboxApiArg, "application/octet-stream", requestBody);
+        String accessToken = ApiConfig.getAccessToken();
+        if (accessToken == null) {
+            Log.e("APICall", "Access token is null");
+            return;
+        }
+
+        Call<Metadata> call = dropboxApi.uploadFile(accessToken, dropboxApiArg, "application/octet-stream", requestBody);
         call.enqueue(new Callback<Metadata>() {
             @Override
             public void onResponse(Call<Metadata> call, Response<Metadata> response) {
                 if (response.isSuccessful()) {
-                    Log.d("APICall", "File uploaded successfully");
+                    // Handle successful response
+                    Log.i("APICall", "File uploaded successfully: " + response.body());
                 } else {
-                    Log.e("APICall", "Upload failed: " + response.message());
+                    Log.e("APICall", "Upload failed: " + response.errorBody());
                 }
             }
 

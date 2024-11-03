@@ -8,7 +8,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
-import vn.edu.usth.dropboxui.ListFloder.Metadata;
+import vn.edu.usth.dropboxui.model.Metadata;
 import vn.edu.usth.dropboxui.R;
 
 public class FileAdapter extends RecyclerView.Adapter<FileAdapter.FileViewHolder> {

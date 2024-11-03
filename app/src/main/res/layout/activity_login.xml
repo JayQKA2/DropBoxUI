@@ -117,7 +117,14 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                 android:textStyle="bold"
                 android:id="@+id/sign_in"/>
+
         </LinearLayout>
+
+        <Button
+            android:id="@+id/login_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Button" />
 
 
     </LinearLayout>

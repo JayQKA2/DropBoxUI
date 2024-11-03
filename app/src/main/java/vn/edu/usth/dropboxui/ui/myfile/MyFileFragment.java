@@ -41,7 +41,7 @@ import vn.edu.usth.dropboxui.RetrofitClient;
 
 public class MyFileFragment extends Fragment {
     private static final String BASE_URL = "https://api.dropboxapi.com/2/";
-    private static final String ACCESS_TOKEN = "Bearer sl.B-5WbYsKiRFduxZyEHguFH_j3opgoB6p5DrVZUsFbek6bK0AUtamnGujahioTVTJ-T6-3dYpMt6-xhcCmg_CGTJ35gSLBuyAz11VPfGawF-mtcjMMAb3c6ynhR0Gy6gXfZhxgBkG0xXSDlpzSCJ1H7g";
+    private static final String ACCESS_TOKEN = "Bearer sl.B_S-TZWlzDCVuyqAT0yjFxM_bcqoo59gippdQC8TEjVcVyiD_KggHLflTucAkuKGrjucjLe0EMH7gidyyYbGNrbj-ryk6MIIz86j1-ZLBmBgH5_x5O1Sbr2xz8dYidAiSOlqqAIAGNtRqncBCJoNDlY";
 
     private long totalSize = 0;
     private long imageSize = 0;

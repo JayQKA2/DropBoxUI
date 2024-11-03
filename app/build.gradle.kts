@@ -43,6 +43,7 @@ dependencies {
     implementation(libs.lifecycle.viewmodel.ktx)
     implementation(libs.navigation.fragment)
     implementation(libs.navigation.ui)
+    implementation(libs.media3.common)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
@@ -52,5 +53,11 @@ dependencies {
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
     //bumptech
     implementation("com.github.bumptech.glide:glide:4.12.0")
+    //volley
+    implementation("com.android.volley:volley:1.2.1")
+    //Picasso
+    implementation ("com.squareup.picasso:picasso:2.71828")
+
+
 
 }
