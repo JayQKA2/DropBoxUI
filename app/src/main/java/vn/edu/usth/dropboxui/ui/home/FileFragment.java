@@ -26,9 +26,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -49,6 +47,7 @@ public class FileFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        Log.d(TAG, "onCreateView: started");
         View view = inflater.inflate(R.layout.fragment_file, container, false);
 
         recyclerView = view.findViewById(R.id.recyclerView);
@@ -57,9 +56,9 @@ public class FileFragment extends Fragment {
         adapter = new FileAdapter(getContext(), fileUrls);
         recyclerView.setAdapter(adapter);
 
-        FloatingActionButton addButton = view.findViewById(R.id.uploadButton3);
-        addButton.setOnClickListener(v -> {
-            // Handle add file button click
+        FloatingActionButton uploadButton = view.findViewById(R.id.uploadButton3);
+        uploadButton.setOnClickListener(v -> {
+            Log.d(TAG, "Upload button clicked");
             Intent intent = new Intent(Intent.ACTION_PICK);
             intent.setType("*/*");
             startActivityForResult(intent, 4);
@@ -71,6 +70,7 @@ public class FileFragment extends Fragment {
     }
 
     private void fetchFiles() {
+        Log.d(TAG, "fetchFiles: started");
         String accessToken = ApiConfig.getAccessToken();
         if (accessToken == null) {
             Log.e(TAG, "Access token is null");
@@ -81,12 +81,13 @@ public class FileFragment extends Fragment {
                 Request.Method.POST,
                 API_URL,
                 response -> {
+                    Log.d(TAG, "fetchFiles: response received");
                     try {
                         JSONObject jsonResponse = new JSONObject(response);
                         JSONArray entries = jsonResponse.getJSONArray("entries");
                         for (int i = 0; i < entries.length(); i++) {
                             JSONObject entry = entries.getJSONObject(i);
-                            Metadata metadata = new Metadata(entry.getString("name"), entry.getString("path_display"));
+                            Metadata metadata = new Metadata(entry.getString("name"), entry.getString("path_display"), entry.getString(".tag"), entry.getString(".tag").equals("folder"));
                             fileUrls.add(metadata);
                         }
                         adapter.notifyDataSetChanged();
@@ -113,7 +114,7 @@ public class FileFragment extends Fragment {
             @Override
             public Map<String, String> getHeaders() {
                 Map<String, String> headers = new HashMap<>();
-                headers.put("Authorization", accessToken);
+                headers.put("Authorization", "Bearer " + accessToken);
                 headers.put("Content-Type", "application/json");
                 return headers;
             }
@@ -123,6 +124,7 @@ public class FileFragment extends Fragment {
     }
 
     private void uploadFileToDropbox(Uri fileUri) {
+        Log.d(TAG, "uploadFileToDropbox: started");
         String accessToken = ApiConfig.getAccessToken();
         if (accessToken == null) {
             Log.e(TAG, "Access token is null");
@@ -140,11 +142,13 @@ public class FileFragment extends Fragment {
                 DbxRequestConfig config = DbxRequestConfig.newBuilder("dropbox/java-tutorial").build();
                 DbxClientV2 client = new DbxClientV2(config, accessToken);
 
-                String fileName = "uploaded_file"; // You can generate a unique file name here
+                String fileName = "uploaded_file_" + System.currentTimeMillis();
                 FileMetadata metadata = client.files().uploadBuilder("/" + fileName)
                         .uploadAndFinish(inputStream);
 
                 Log.d(TAG, "File uploaded: " + metadata.getPathLower());
+                fileUrls.add(new Metadata(fileName, metadata.getPathLower(), "file", false));
+                getActivity().runOnUiThread(() -> adapter.notifyDataSetChanged());
             } catch (Exception e) {
                 Log.e(TAG, "Error uploading file: " + e.getMessage());
             }
@@ -157,30 +161,9 @@ public class FileFragment extends Fragment {
         if (requestCode == 4 && resultCode == getActivity().RESULT_OK && data != null) {
             Uri selectedFileUri = data.getData();
             if (selectedFileUri != null) {
-                // Handle the file selected from the device
-                readFileContent(selectedFileUri);
+                Log.d(TAG, "File selected: " + selectedFileUri.toString());
+                uploadFileToDropbox(selectedFileUri);
             }
-        }
-    }
-
-    private void readFileContent(Uri fileUri) {
-        try {
-            InputStream inputStream = getContext().getContentResolver().openInputStream(fileUri);
-            if (inputStream != null) {
-                BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
-                StringBuilder stringBuilder = new StringBuilder();
-                String line;
-                while ((line = reader.readLine()) != null) {
-                    stringBuilder.append(line).append("\n");
-                }
-                reader.close();
-                inputStream.close();
-                String fileContent = stringBuilder.toString();
-                Log.d(TAG, "File content: " + fileContent);
-                // You can now upload the file content to Dropbox or handle it as needed
-            }
-        } catch (Exception e) {
-            Log.e(TAG, "Error reading file: " + e.getMessage());
         }
     }
 }

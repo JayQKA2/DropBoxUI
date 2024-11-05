@@ -45,4 +45,13 @@
     <string name="title_user">User</string>
     <string name="title_storage_fragment">Storage</string>
     <string name="title_movie_fragment">Movies</string>
+    <string name="title_music_fragment">Music</string>
+    <string name="title_pictures_fragment">Pictures</string>
+    <string name="title_file_fragment">File</string>
+    <string name="title_user_fragment">User</string>
+    <string name="file_icon">File</string>
+
+
+    <string name="you_don_t_have_any_pictures">You don\'t have any pictures</string>
+    <string name="upload_pictures">Upload pictures</string>
 </resources>

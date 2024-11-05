@@ -16,5 +16,7 @@
     <color name="blue">#00CBFF</color>
     <color name="sun">#F44336</color>
 
+    <color name="onBackGround">#FF000000</color>
+    <color name="onButton">#F44336</color>
 
 </resources>

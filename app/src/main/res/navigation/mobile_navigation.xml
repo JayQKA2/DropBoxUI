@@ -89,7 +89,7 @@
     <fragment
         android:id="@+id/fileFragment"
         android:name="vn.edu.usth.dropboxui.ui.home.FileFragment"
-        android:label="FileFragment" >
+        android:label="@string/title_file_fragment" >
         <action
             android:id="@+id/action_fileFragment_to_navigation_home"
             app:destination="@id/navigation_home" />
