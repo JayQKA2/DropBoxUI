@@ -16,7 +16,10 @@
     <color name="blue">#00CBFF</color>
     <color name="sun">#F44336</color>
 
-    <color name="onBackGround">#FF000000</color>
-    <color name="onButton">#F44336</color>
+    <color name="switch_thumb_on">#4CAF50</color>
+    <color name="switch_thumb_off">#888888</color>
+    <color name="switch_track_on">#A5D6A7</color>
+    <color name="switch_track_off">#555555</color>
+
 
 </resources>

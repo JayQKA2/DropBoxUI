@@ -9,7 +9,7 @@
         android:id="@+id/navigation_home"
         android:name="vn.edu.usth.dropboxui.ui.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" >
+        tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_navigation_home_to_movieFragment"
             app:destination="@id/movieFragment" />
@@ -22,28 +22,55 @@
         <action
             android:id="@+id/action_navigation_home_to_fileFragment"
             app:destination="@id/fileFragment" />
+        <action
+            android:id="@+id/action_navigation_home_to_userFragment"
+            app:destination="@id/navigation_user" /> <!-- Added action to navigate to UserFragment -->
     </fragment>
 
+    <fragment
+        android:id="@+id/navigation_user"
+        android:name="vn.edu.usth.dropboxui.ui.user.UserFragment"
+        android:label="@string/title_user"
+        tools:layout="@layout/fragment_user">
+        <action
+            android:id="@+id/action_userFragment_to_MyFileFragment"
+            app:destination="@id/myFileFragment" />
+        <action
+            android:id="@+id/action_userFragment_to_FileFragment"
+            app:destination="@+id/fileFragment"/>
+        <action
+            android:id="@+id/action_userFragment_to_SettingFragment"
+            app:destination="@+id/settingFragment"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/myFileFragment"
+        android:name="vn.edu.usth.dropboxui.ui.myfile.MyFileFragment"
+        android:label="My File Fragment" />
 
     <fragment
         android:id="@+id/navigation_my_files"
         android:name="vn.edu.usth.dropboxui.ui.myfile.MyFileFragment"
         android:label="@string/title_my_files"
-        tools:layout="@layout/fragment_my_file" >
+        tools:layout="@layout/fragment_my_file">
         <action
             android:id="@+id/action_navigation_my_files_to_storageFragment2"
             app:destination="@id/storageFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/storageFragment"
         android:name="vn.edu.usth.dropboxui.ui.myfile.StorageFragment"
         android:label="@string/title_storage"
         tools:layout="@layout/fragment_storage" />
+
     <fragment
-        android:id="@+id/navigation_user"
-        android:name="vn.edu.usth.dropboxui.ui.user.UserFragment"
-        android:label="@string/title_user"
-        tools:layout="@layout/fragment_user" />
+        android:id="@+id/settingFragment"
+        android:name="vn.edu.usth.dropboxui.SettingFragment"
+        android:label="@string/title_settings"
+        tools:layout="@layout/fragment_setting" />
+
+
     <activity
         android:id="@+id/loginActivity"
         android:name="vn.edu.usth.dropboxui.LoginActivity"
@@ -59,40 +86,43 @@
         android:name="vn.edu.usth.dropboxui.MainActivity"
         android:label="@string/title_my_files"
         tools:layout="@layout/fragment_my_file" />
+
     <fragment
         android:id="@+id/movieFragment"
         android:name="vn.edu.usth.dropboxui.ui.home.MovieFragment"
         android:label="@string/title_movie"
-        tools:layout="@layout/fragment_movie" >
+        tools:layout="@layout/fragment_movie">
         <action
             android:id="@+id/action_movieFragment_to_navigation_home"
             app:destination="@id/navigation_home" />
     </fragment>
+
     <fragment
         android:id="@+id/musicFragment"
         android:name="vn.edu.usth.dropboxui.ui.home.MusicFragment"
         android:label="@string/title_music"
-        tools:layout="@layout/fragment_music" >
+        tools:layout="@layout/fragment_music">
         <action
             android:id="@+id/action_musicFragment_to_navigation_home"
             app:destination="@id/navigation_home" />
     </fragment>
+
     <fragment
         android:id="@+id/picturesFragment"
         android:name="vn.edu.usth.dropboxui.ui.home.PicturesFragment"
         android:label="@string/title_pictures"
-        tools:layout="@layout/fragment_pictures" >
+        tools:layout="@layout/fragment_pictures">
         <action
             android:id="@+id/action_picturesFragment_to_navigation_home"
             app:destination="@id/navigation_home" />
     </fragment>
+
     <fragment
         android:id="@+id/fileFragment"
         android:name="vn.edu.usth.dropboxui.ui.home.FileFragment"
-        android:label="@string/title_file_fragment" >
+        android:label="FileFragment">
         <action
             android:id="@+id/action_fileFragment_to_navigation_home"
             app:destination="@id/navigation_home" />
     </fragment>
-
 </navigation>

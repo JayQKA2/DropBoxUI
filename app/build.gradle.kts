@@ -32,7 +32,6 @@ android {
     buildFeatures {
         viewBinding = true
     }
-
 }
 
 dependencies {
@@ -48,7 +47,7 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
-    implementation("com.dropbox.core:dropbox-core-sdk:7.0.0")
+    implementation(libs.dropbox.core.sdk)
     // Retrofit
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
@@ -58,11 +57,6 @@ dependencies {
     implementation("com.android.volley:volley:1.2.1")
     //Picasso
     implementation ("com.squareup.picasso:picasso:2.71828")
-    implementation ("de.hdodenhof:circleimageview:3.1.0")
-
-    implementation (libs.photoview)
-    implementation (libs.swiperefreshlayout)
-
 
 
 

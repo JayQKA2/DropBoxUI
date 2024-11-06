@@ -1,5 +1,6 @@
 [versions]
-agp = "8.6.1"
+agp = "8.6.0"
+dropboxCoreSdk = "7.0.0"
 junit = "4.13.2"
 junitVersion = "1.2.1"
 espressoCore = "3.6.1"
@@ -11,10 +12,9 @@ lifecycleViewmodelKtx = "2.8.4"
 navigationFragment = "2.7.7"
 navigationUi = "2.7.7"
 media3Common = "1.4.1"
-photoview = "2.3.0"
-swiperefreshlayout = "1.1.0"
 
 [libraries]
+dropbox-core-sdk = { module = "com.dropbox.core:dropbox-core-sdk", version.ref = "dropboxCoreSdk" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
@@ -26,8 +26,6 @@ lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-view
 navigation-fragment = { group = "androidx.navigation", name = "navigation-fragment", version.ref = "navigationFragment" }
 navigation-ui = { group = "androidx.navigation", name = "navigation-ui", version.ref = "navigationUi" }
 media3-common = { group = "androidx.media3", name = "media3-common", version.ref = "media3Common" }
-photoview = { module = "com.github.chrisbanes:PhotoView", version.ref = "photoview" }
-swiperefreshlayout = { module = "androidx.swiperefreshlayout:swiperefreshlayout", version.ref = "swiperefreshlayout" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

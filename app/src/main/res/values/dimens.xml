@@ -4,7 +4,7 @@
     <!--    settings fragments-->
     <dimen name="text_start">10dp</dimen>
     <dimen name="text_end">10dp</dimen>
-    <dimen name="layout_margin">20dp</dimen>
+    <dimen name="layout_margin">10dp</dimen>
     <dimen name="text_padding">10dp</dimen>
 
     <!--    upload fragments-->
