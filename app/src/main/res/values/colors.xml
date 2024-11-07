@@ -20,6 +20,5 @@
     <color name="switch_thumb_off">#888888</color>
     <color name="switch_track_on">#A5D6A7</color>
     <color name="switch_track_off">#555555</color>
-
-
+    <color name="onBackground">#FAFAFA</color>
 </resources>

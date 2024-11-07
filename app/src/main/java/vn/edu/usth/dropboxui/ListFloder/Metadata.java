@@ -1,4 +1,4 @@
-// Metadata.java
+
 package vn.edu.usth.dropboxui.ListFloder;
 
 import com.google.gson.annotations.SerializedName;

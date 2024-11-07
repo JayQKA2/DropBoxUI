@@ -1,4 +1,4 @@
-package vn.edu.usth.dropboxui.ui.home;
+package vn.edu.usth.dropboxui.ui.Adapter;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import com.github.chrisbanes.photoview.PhotoView;
 import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 import java.util.List;
@@ -88,10 +87,10 @@ public class PicturesAdapter extends RecyclerView.Adapter<PicturesAdapter.Pictur
         Dialog dialog = new Dialog(context, android.R.style.Theme_Black_NoTitleBar_Fullscreen);
         dialog.setContentView(R.layout.fullscreen_image_view);
 
-        PhotoView photoView = dialog.findViewById(R.id.fullScreenImageView);
-        Picasso.get().load(imageUrl).into(photoView);
+        ImageView imageView = dialog.findViewById(R.id.fullScreenImageView);
+        Picasso.get().load(imageUrl).into(imageView);
 
-        photoView.setOnClickListener(v -> dialog.dismiss());
+        imageView.setOnClickListener(v -> dialog.dismiss());
 
         dialog.show();
     }

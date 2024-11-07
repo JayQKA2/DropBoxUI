@@ -33,6 +33,11 @@ android {
         viewBinding = true
     }
 }
+repositories {
+    google()
+    mavenCentral()
+    maven { url = uri("https://www.jitpack.io") }
+}
 
 dependencies {
 
@@ -57,6 +62,8 @@ dependencies {
     implementation("com.android.volley:volley:1.2.1")
     //Picasso
     implementation ("com.squareup.picasso:picasso:2.71828")
+    implementation ("de.hdodenhof:circleimageview:3.1.0")
+    implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
 
 
 

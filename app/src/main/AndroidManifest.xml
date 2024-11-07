@@ -22,7 +22,7 @@
         android:theme="@style/Theme.DropBoxUI"
         tools:targetApi="31">
 
-        <activity android:name=".LoginActivity"
+        <activity android:name=".Login.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -32,11 +32,11 @@
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="http" android:host="localhost" android:port="6060" android:path="/oauth/callback" />
+                <data android:scheme="http" android:host="localhost" android:port="8080" android:path="/oauth/callback" />
             </intent-filter>
         </activity>
 
-        <activity android:name=".SignInActivity" />
+        <activity android:name=".Login.SignInActivity" />
         <activity android:name=".MainActivity" />
 
 

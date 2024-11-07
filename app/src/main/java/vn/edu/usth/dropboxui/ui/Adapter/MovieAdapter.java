@@ -1,4 +1,4 @@
-package vn.edu.usth.dropboxui.ui.home;
+package vn.edu.usth.dropboxui.ui.Adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,12 +9,13 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 import vn.edu.usth.dropboxui.R;
+import vn.edu.usth.dropboxui.model.Metadata;
 
 public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHolder> {
     private Context context;
-    private List<String> movieUrls;
+    private List<Metadata> movieUrls;
 
-    public MovieAdapter(Context context, List<String> movieUrls) {
+    public MovieAdapter(Context context, List<Metadata> movieUrls) {
         this.context = context;
         this.movieUrls = movieUrls;
     }
@@ -28,7 +29,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
 
     @Override
     public void onBindViewHolder(@NonNull MovieViewHolder holder, int position) {
-        String movieUrl = movieUrls.get(position);
+        String movieUrl = String.valueOf(movieUrls.get(position));
         holder.movieTitle.setText(movieUrl); // Assuming movieUrl is the title, adjust as needed
     }
 

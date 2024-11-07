@@ -1,5 +1,5 @@
 
-package vn.edu.usth.dropboxui;
+package vn.edu.usth.dropboxui.model;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;

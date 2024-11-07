@@ -1,7 +1,7 @@
-package vn.edu.usth.dropboxui;
+package vn.edu.usth.dropboxui.API;
 
 public class ApiConfig {
-    private static String accessToken;
+    public static String accessToken;
 
     public static String getAccessToken() {
         return accessToken;

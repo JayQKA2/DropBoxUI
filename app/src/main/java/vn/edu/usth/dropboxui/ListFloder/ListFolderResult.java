@@ -1,4 +1,4 @@
-// ListFolderResult.java
+
 package vn.edu.usth.dropboxui.ListFloder;
 
 import com.google.gson.annotations.SerializedName;
@@ -14,10 +14,10 @@ public class ListFolderResult {
     @SerializedName("has_more")
     private boolean hasMore;
 
-    // Add getter method for entries
+
     public List<Metadata> getEntries() {
         return entries;
     }
 
-    // Getters for other fields (if needed)
+
 }

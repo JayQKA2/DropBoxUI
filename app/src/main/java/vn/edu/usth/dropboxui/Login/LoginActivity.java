@@ -26,11 +26,13 @@
 //        });
 //    }
 //}
-// DropboxLoginActivity.java
 
-package vn.edu.usth.dropboxui;
 
+package vn.edu.usth.dropboxui.Login;
+
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -43,6 +45,10 @@ import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.StringRequest;
+
+import vn.edu.usth.dropboxui.API.ApiConfig;
+import vn.edu.usth.dropboxui.MainActivity;
+import vn.edu.usth.dropboxui.R;
 import vn.edu.usth.dropboxui.model.MySingleton;
 
 import org.json.JSONException;
@@ -136,8 +142,14 @@ public class LoginActivity extends AppCompatActivity {
         MySingleton.getInstance(this).addToRequestQueue(tokenRequest);
     }
 
+
     private void onLoginSuccess(String accessToken) {
         ApiConfig.setAccessToken(accessToken);
+        SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("accessToken", accessToken);
+        editor.apply();
+
         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
         startActivity(intent);
         finish();

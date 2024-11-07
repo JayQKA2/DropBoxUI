@@ -1,5 +1,5 @@
 
-package vn.edu.usth.dropboxui.ui.home;
+package vn.edu.usth.dropboxui.ui.Adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,12 +10,13 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 import vn.edu.usth.dropboxui.R;
+import vn.edu.usth.dropboxui.model.Metadata;
 
 public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.MusicViewHolder> {
     private Context context;
-    private List<String> musicUrls;
+    private List<Metadata> musicUrls;
 
-    public MusicAdapter(Context context, List<String> musicUrls) {
+    public MusicAdapter(Context context, List<Metadata> musicUrls) {
         this.context = context;
         this.musicUrls = musicUrls;
     }
@@ -29,7 +30,7 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.MusicViewHol
 
     @Override
     public void onBindViewHolder(@NonNull MusicViewHolder holder, int position) {
-        String musicUrl = musicUrls.get(position);
+        String musicUrl = String.valueOf(musicUrls.get(position));
         holder.musicTitle.setText(musicUrl); // Assuming musicUrl is the title, adjust as needed
     }
 

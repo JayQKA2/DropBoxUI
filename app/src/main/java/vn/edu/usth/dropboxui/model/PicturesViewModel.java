@@ -4,8 +4,6 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 import java.util.ArrayList;
-import vn.edu.usth.dropboxui.model.PictureModel;
-import vn.edu.usth.dropboxui.ApiConfig;
 
 public class PicturesViewModel extends ViewModel {
     private MutableLiveData<ArrayList<PictureModel>> picturesLiveData;

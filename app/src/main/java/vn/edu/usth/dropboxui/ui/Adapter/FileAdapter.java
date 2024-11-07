@@ -1,4 +1,4 @@
-package vn.edu.usth.dropboxui.ui.home;
+package vn.edu.usth.dropboxui.ui.Adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;

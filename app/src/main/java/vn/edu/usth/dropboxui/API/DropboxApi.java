@@ -1,4 +1,4 @@
-package vn.edu.usth.dropboxui;
+package vn.edu.usth.dropboxui.API;
 
 import java.util.List;
 
@@ -14,7 +14,6 @@ import retrofit2.http.Streaming;
 import retrofit2.http.Url;
 import vn.edu.usth.dropboxui.ListFloder.ListFolderRequest;
 import vn.edu.usth.dropboxui.ListFloder.ListFolderResult;
-import vn.edu.usth.dropboxui.ListFloder.Metadata;
 import vn.edu.usth.dropboxui.UploadSesion.UploadSessionStartResult;
 
 public interface DropboxApi {
@@ -26,7 +25,7 @@ public interface DropboxApi {
 
     @Headers("Content-Type: application/octet-stream")
     @POST("2/files/upload")
-    Call<Metadata> uploadFile(
+    Call<ResponseBody> uploadFile(
             @Header("Authorization") String accessToken,
             @Header("Dropbox-API-Arg") String dropboxApiArg,
             @Header("Content-Type") String contentType,
@@ -63,4 +62,5 @@ public interface DropboxApi {
             @Header("Authorization") String authorization,
             @Body RequestBody requestBody
     );
+
 }

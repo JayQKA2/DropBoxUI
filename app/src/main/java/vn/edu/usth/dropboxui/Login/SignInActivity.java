@@ -1,26 +1,16 @@
-package vn.edu.usth.dropboxui;
+package vn.edu.usth.dropboxui.Login;
 
-import android.app.ActionBar;
-import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Gravity;
-import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.PopupMenu;
-import android.widget.PopupWindow;
 import android.widget.TextView;
-import android.widget.Toast;
-import android.view.ViewGroup.LayoutParams;
-import android.view.WindowManager;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.util.zip.Inflater;
+import vn.edu.usth.dropboxui.MainActivity;
+import vn.edu.usth.dropboxui.R;
 
 public class SignInActivity extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package vn.edu.usth.dropboxui;
+package vn.edu.usth.dropboxui.Login;
 
 
 import android.view.Gravity;
@@ -10,6 +10,8 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.content.Context;
+
+import vn.edu.usth.dropboxui.R;
 
 
 public class LoggingProblem {

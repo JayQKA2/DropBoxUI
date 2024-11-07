@@ -66,19 +66,19 @@
 
     <fragment
         android:id="@+id/settingFragment"
-        android:name="vn.edu.usth.dropboxui.SettingFragment"
+        android:name="vn.edu.usth.dropboxui.ui.user.SettingFragment"
         android:label="@string/title_settings"
         tools:layout="@layout/fragment_setting" />
 
 
     <activity
         android:id="@+id/loginActivity"
-        android:name="vn.edu.usth.dropboxui.LoginActivity"
+        android:name="vn.edu.usth.dropboxui.Login.LoginActivity"
         android:label="@string/log_in"
         tools:layout="@layout/activity_login" />
     <activity
         android:id="@+id/signInActivity"
-        android:name="vn.edu.usth.dropboxui.SignInActivity"
+        android:name="vn.edu.usth.dropboxui.Login.SignInActivity"
         android:label="@string/sign_in"
         tools:layout="@layout/activity_sign_in" />
     <activity

@@ -14,7 +14,6 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
 import com.android.volley.Request;
-import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.StringRequest;
 
 import org.json.JSONException;
@@ -23,7 +22,7 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-import vn.edu.usth.dropboxui.ApiConfig;
+import vn.edu.usth.dropboxui.API.ApiConfig;
 import vn.edu.usth.dropboxui.R;
 import vn.edu.usth.dropboxui.model.MySingleton;
 
