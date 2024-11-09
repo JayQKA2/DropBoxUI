@@ -14,7 +14,7 @@ import retrofit2.http.Streaming;
 import retrofit2.http.Url;
 import vn.edu.usth.dropboxui.ListFloder.ListFolderRequest;
 import vn.edu.usth.dropboxui.ListFloder.ListFolderResult;
-import vn.edu.usth.dropboxui.UploadSesion.UploadSessionStartResult;
+import vn.edu.usth.dropboxui.model.UserInfo;
 
 public interface DropboxApi {
     @POST("2/files/list_folder")
@@ -36,12 +36,6 @@ public interface DropboxApi {
     @GET
     Call<ResponseBody> downloadFile(@Header("Authorization") String accessToken, @Url String fileUrl);
 
-    @POST("2/files/upload_session/start")
-    Call<UploadSessionStartResult> startUploadSession(
-            @Header("Authorization") String accessToken,
-            @Header("Dropbox-API-Arg") String dropboxApiArg,
-            @Body RequestBody file
-    );
 
     @POST("2/files/upload_session/append_v2")
     Call<Void> appendUploadSession(
@@ -62,5 +56,7 @@ public interface DropboxApi {
             @Header("Authorization") String authorization,
             @Body RequestBody requestBody
     );
+    @POST("users/get_current_account")
+    Call<UserInfo> getCurrentAccount(@Header("Authorization") String authHeader);
 
 }

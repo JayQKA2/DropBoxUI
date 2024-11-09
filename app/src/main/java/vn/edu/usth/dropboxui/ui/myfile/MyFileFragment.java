@@ -30,15 +30,31 @@ public class MyFileFragment extends Fragment {
     private static final String BASE_URL = "https://api.dropboxapi.com/2/";
     private static final long TOTAL_STORAGE = 64L * 1024L * 1024L * 1024L; // 64GB in bytes
 
-    private long totalSize = 0;
-    private long imageSize = 0;
-    private long videoSize = 0;
-    private long audioSize = 0;
+    private static long totalSize = 0;
+    private static long imageSize = 0;
+    private static long videoSize = 0;
+    private static long audioSize = 0;
     private long otherSize = 0;
     private int fileCount = 0;
     private int imageCount = 0;
     private int videoCount = 0;
     private int audioCount = 0;
+
+    public static long getTotalSize() {
+        return totalSize;
+    }
+
+    public static long getImageSize() {
+        return imageSize;
+    }
+
+    public static long getVideoSize() {
+        return videoSize;
+    }
+
+    public static long getAudioSize() {
+        return audioSize;
+    }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

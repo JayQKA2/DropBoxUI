@@ -25,8 +25,17 @@ public class StorageFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_storage, container, false);
+        fetchDataFromMyFileFragment();
         updateUI(view);
         return view;
+    }
+
+    private void fetchDataFromMyFileFragment() {
+        totalSize = MyFileFragment.getTotalSize();
+        imageSize = MyFileFragment.getImageSize();
+        videoSize = MyFileFragment.getVideoSize();
+        audioSize = MyFileFragment.getAudioSize();
+        otherSize = totalSize - (imageSize + videoSize + audioSize);
     }
 
     private void updateUI(View root) {
@@ -38,18 +47,21 @@ public class StorageFragment extends Fragment {
         TextView audioPercentageTextView = root.findViewById(R.id.audio_percentage);
         ProgressBar circularProgressBar = root.findViewById(R.id.circular_progress);
 
-        totalSize = 46L * 1024L * 1024L * 1024L;
-        imageSize = 6L * 1024L * 1024L * 1024L;
-        videoSize = 8L * 1024L * 1024L * 1024L;
-        audioSize = 5L * 1024L * 1024L * 1024L;
-        otherSize = totalSize - (imageSize + videoSize + audioSize);
-
         storageUsedTextView.setText(formatSize(totalSize));
         storageTotalTextView.setText(formatSize(TOTAL_STORAGE));
-        filePercentageTextView.setText(String.format("%.2f%%", (otherSize * 100.0) / totalSize));
-        imagePercentageTextView.setText(String.format("%.2f%%", (imageSize * 100.0) / totalSize));
-        videoPercentageTextView.setText(String.format("%.2f%%", (videoSize * 100.0) / totalSize));
-        audioPercentageTextView.setText(String.format("%.2f%%", (audioSize * 100.0) / totalSize));
+
+        if (totalSize > 0) {
+            filePercentageTextView.setText(String.format("%.2f%%", (otherSize * 100.0) / totalSize));
+            imagePercentageTextView.setText(String.format("%.2f%%", (imageSize * 100.0) / totalSize));
+            videoPercentageTextView.setText(String.format("%.2f%%", (videoSize * 100.0) / totalSize));
+            audioPercentageTextView.setText(String.format("%.2f%%", (audioSize * 100.0) / totalSize));
+        } else {
+            filePercentageTextView.setText("0.00%");
+            imagePercentageTextView.setText("0.00%");
+            videoPercentageTextView.setText("0.00%");
+            audioPercentageTextView.setText("0.00%");
+        }
+
         circularProgressBar.setProgress((int) ((totalSize * 100) / TOTAL_STORAGE));
     }
 

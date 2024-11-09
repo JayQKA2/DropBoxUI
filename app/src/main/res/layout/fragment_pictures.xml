@@ -14,12 +14,12 @@
         android:clipToPadding="false"
         android:scrollbars="vertical" />
     <TextView
-        android:id="@+id/MusicTitle"
+        android:id="@+id/PictureTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:text="Music"
+        android:text="Picture"
         android:textColor="@color/white"
         android:textSize="50sp"
         android:textStyle="bold" />

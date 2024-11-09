@@ -26,7 +26,7 @@ public class SettingFragment extends Fragment {
 
         // Initialize the switches
         switchNotifications = view.findViewById(R.id.switch_notifications);
-        switchDarkMode = view.findViewById(R.id.switch_dark_mode); // Initialize dark mode switch
+        switchDarkMode = view.findViewById(R.id.switch_dark_mode);
 
         // Set listeners for switches
         switchNotifications.setOnCheckedChangeListener((buttonView, isChecked) -> {
